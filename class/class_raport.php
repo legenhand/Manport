@@ -14,13 +14,13 @@ class raport extends config {
 	    $baik = explode("-", $baik);
 	    $sangat_baik = explode("-", $sangat_baik);
 	    if($nilai >= $kurang[0] && $nilai < $cukup[0]) {
-	    	return "D(kurang)";
+	    	return "D";
 	    } elseif($nilai >= $cukup[0] && $nilai < $baik[0]) {
-	    	return "C(cukup)";
+	    	return "C";
 	    } elseif($nilai >= $baik[0] && $nilai < $sangat_baik[0]) {
-	    	return "B(baik)";
+	    	return "B";
 	    } elseif($nilai >= $sangat_baik[0]) {
-	    	return "A(sangat baik)";
+	    	return "A";
 	    }
 	}
 

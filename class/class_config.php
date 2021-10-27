@@ -3,7 +3,7 @@
 class config  {
 	// data to connect db
 	private $host = "localhost";
-	protected $dbname = "raport";
+	protected $dbname = "raportXX";
 	private $username = "root";
 	private $password = "";
 	// db object
@@ -43,7 +43,7 @@ class config  {
 		} else {
 			$protocol = 'http://';
 		}
-		return self::protocol().$_SERVER['HTTP_HOST']."/Manport/".$uri;
+		return self::protocol().$_SERVER['HTTP_HOST']."/raportXX/".$uri;
 	}
 
 	public static function generate_uuid() {
