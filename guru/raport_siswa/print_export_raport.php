@@ -49,6 +49,8 @@ if($arrKelasKetSiswa[0] == "X"){
     $sikap = 'Menunjukan sikap bersyukur, selalu memberi salam, menghormati orang yang menjalankan ibadah sesuai agamanya, sikap jujur, disiplin, gotong royong, santun dan percaya diri dengan baik';
 }elseif ($arrKelasKetSiswa[0] == "XI"){
     $sikap = 'Selalu berdoa sebelum dan sesudah melakukan kegiatan, menjalankan ibadah dan memberi salam pada saat awal dan akhir kegiatan. sedangkan sikap bersyukur ketika berhasil mengerjakan sesuatu mulai berkembang, dan selalu menunjukkan sikap jujur dengan sangat baik, sikap tanggung jawab dengan baik, dan sikap baik.';
+}elseif ($arrKelasKetSiswa[0] == "XII"){
+    $sikap = 'Selalu berdoa sebelum dan sesudah melakukan kegiatan, menjalankan ibadah dan memberi salam pada saat awal dan akhir kegiatan. sedangkan sikap bersyukur ketika berhasil mengerjakan sesuatu mulai berkembang, dan selalu menunjukkan sikap jujur dengan sangat baik, sikap tanggung jawab dengan baik, dan sikap baik.';
 }
 // halaman 1
 $pdf->AddPage();
@@ -130,6 +132,9 @@ if($cek_has_nilai_deskripsi > 0) {
     $urut_mapel_otkp = array('Pendidikan Agama','Pendidikan Pancasila ', 'Bahasa Ind', 'Mate', 'Bahasa Ing', 'Pendidikan Jasmani', 'Otomatisasi Tata Kelola Kepegawaian', 'Otomatisasi Tata Kelola Keuangan', 'Otomatisasi Tata Kelola Sarana Prasarana', 'Otomatisasi Tata Kelola Humas Keprotokolan', 'Produk Kreatif dan');
     $urut_mapel_tkj = array('Pendidikan Agama','Pendidikan Pancasila ', 'Bahasa Ind', 'Mate', 'Bahasa Ing', 'Pendidikan Jasmani', 'Teknologi Jaringan', 'Administrasi Infra', 'Administrasi Sis', 'Teknologi Lay', 'Produk Kre');
     $urut_mapel_bdp = array('Pendidikan Agama','Pendidikan Pancasila ', 'Bahasa Ind', 'Mate', 'Bahasa Ing', 'Pendidikan Jasmani', 'Penataan Pro', 'Bisnis On', 'Pengelolaan Bisnis', 'Administrasi Tra', 'Produk Kreatif dan');
+    $urut_mapel_otkp_xii = array('Pendidikan Agama','Pendidikan Pancasila ', 'Bahasa Ind', 'Mate', 'Bahasa Ing', 'Otomatisasi Tata Kelola Kepegawaian', 'Otomatisasi Tata Kelola Keuangan', 'Otomatisasi Tata Kelola Sarana Prasarana', 'Otomatisasi Tata Kelola Humas Keprotokolan', 'Produk Kreatif dan');
+    $urut_mapel_tkj_xii = array('Pendidikan Agama','Pendidikan Pancasila ', 'Bahasa Ind', 'Mate', 'Bahasa Ing', 'Teknologi Jaringan', 'Administrasi Infra', 'Administrasi Sis', 'Teknologi Lay', 'Produk Kre');
+    $urut_mapel_bdp_xii = array('Pendidikan Agama','Pendidikan Pancasila ', 'Bahasa Ind', 'Mate', 'Bahasa Ing', 'Penataan Pro', 'Bisnis On', 'Pengelolaan Bisnis', 'Administrasi Tra', 'Produk Kreatif dan');
     $urut_mapel_otkp_x = array('Pendidikan Agama','Pendidikan Pancasila ', 'Bahasa Ind', 'Mate', 'Sejarah' ,'Bahasa Ing', 'Seni Bud' ,'Pendidikan Jasmani', 'Simulasi dan Komu', 'Ekonomi Bis', 'Administrasi Um','IPA', 'Koresponden', 'Teknologi Perkan', 'Kearsip','Bahasa Sun');
     $urut_mapel_tkj_x = array('Pendidikan Agama','Pendidikan Pancasila ', 'Bahasa Ind', 'Mate', 'Sejarah' ,'Bahasa Ing', 'Seni Bud' ,'Pendidikan Jasmani', 'Simulasi dan Komu', 'Fisi', 'Kimi', 'Sistem Kom', 'Komputer dan', 'Pemrograman','Dasar Des', 'Bahasa Sun');
     $urut_mapel_bdp_x = array('Pendidikan Agama','Pendidikan Pancasila ', 'Bahasa Ind', 'Mate', 'Sejarah' ,'Bahasa Ing', 'Seni Bud' ,'Pendidikan Jasmani', 'Simulasi dan Komu', 'Ekonomi Bis', 'Administrasi Um','IPA', 'Marketing', 'Perencanaan Bis', 'Komunikasi Bis','Bahasa Sun');
@@ -147,6 +152,12 @@ if($cek_has_nilai_deskripsi > 0) {
         $urut_mapel = $urut_mapel_bdp_x;
     }elseif(strpos($kelasJurusan, 'X OTKP') !== false){
         $urut_mapel = $urut_mapel_otkp_x;
+    }elseif(strpos($kelasJurusan, 'XII TKJ') !== false){
+        $urut_mapel = $urut_mapel_tkj_xii;
+    }elseif (strpos($kelasJurusan, 'XII BDP') !== false){
+        $urut_mapel = $urut_mapel_bdp_xii;
+    }elseif (strpos($kelasJurusan, 'XII OTKP') !== false){
+        $urut_mapel = $urut_mapel_otkp_xii;
     }
 
 
@@ -276,10 +287,37 @@ if($cek_has_nilai_deskripsi > 0) {
             "Otomatisasi Tata Kelola Kepegawaian" => "cara penilaian kerja dan prestasi pegawai negeri, cara sistem penggajian dan tunjangan pegawai negeri",
             "Otomatisasi Tata Kelola Keuangan" => " pembuatan laporan keuangan pertanggungjawaban keuangan",
         ];
+        $kd_xii = [
+            "Matematika" => "Memahami Pembelajaran",
+            "Bahasa Inggris & Bahasa Asing lainnya" => "sosial, struktur teks dan unsur kebahasaan interaksi transaksional lisan dan tulis yang melibatkan tindakan memberi dan meminta informasi terkait  saran dan tawaran ,pendapat dan pikiran, beberapa teks khusus undangan resmi  sesuai dengan konteks penggunaannya",
+            "Bahasa Indonesia" => "menganalisis struktur dan kaidah teks anekdot  mengenai permasalahan sosial, ingkungan, dan kebijakan publik serta  teks laporan hasil observasi, baik melalui lisan maupun tulisan.",
+            "Pendidikan Agama dan Budi Pekerti" => "Memahami Pembelajaran",
+            "Pendidikan Agama & Budi Pekerti" => "Memahami Pembelajaran",
+            "Sejarah Indonesia" => "Memahami Pembelajaran",
+            "Pendidikan Pancasila dan Kewarganegaraan" => "Sistem hukum dan peradilan di Indonesia dan peradilan internasional serta peran Indonesia dalam Perdamaian Dunia",
+            "Pendidikan Pancasila & Kewarganegaraan" => "Sistem hukum dan peradilan di Indonesia dan peradilan internasional serta peran Indonesia dalam Perdamaian Dunia",
+            "Pendidikan Jasmani Olahraga & Kesehatan" => "Teknik dasar salah satu aktivitas olahraga permainan bola kecil untuk menghasilkan koordinasi gerak",
+            "Pendidikan Jasmani Olahraga dan Kesehatan" => "Teknik dasar salah satu aktivitas olahraga permainan bola kecil untuk menghasilkan koordinasi gerak",
+            "Administrasi Sistem Jaringan" => " DHCP Server, Mengkonfigurasi DHCP server",
+            "Teknologi Layanan Jaringan" => "Standar komunikasi data",
+            "Administrasi Infrastruktur Jaringan" => "analisa kebutuhan vLAN",
+            "Teknologi Jaringan Berbasis Luas (WAN)" => "Memperbaiki jaringan nirkabel",
+            "Produk Kreatif dan Kewirausahaan" => "Strategi promosi bisnis ritel",
+            "Penataan Produk" => "Menerapkan layout/ Planogram penataan Produk dan Membuat layout/ Planogram produk",
+            "Pengelolaan Bisnis Ritel" => "Advertising dan personal selling dalam bisnis ritel dan sales promotion dan public relation bisnis ritel",
+            "Administrasi Transaksi" => "mengetahui  alat bantu verifikasi & komunikasi dalam transaksi, perawatan mesin-mesin transaksi dan laporan hasil penjualan",
+            "Bisnis Online" => "Membuat iklan online, Membuat Blog",
+            "Otomatisasi Tata Kelola Sarana Prasarana" => "Memahami Pembelajaran",
+            "Otomatisasi Tata Kelola Humas Keprotokolan" => " khalayak humas, rprofesi humas,serta pelayanan prima. ",
+            "Otomatisasi Tata Kelola Kepegawaian" => "cara penilaian kerja dan prestasi pegawai negeri, cara sistem penggajian dan tunjangan pegawai negeri",
+            "Otomatisasi Tata Kelola Keuangan" => " pembuatan laporan keuangan pertanggungjawaban keuangan",
+        ];
         if($arrKelasKetSiswa[0] == "X"){
             $kd = $kd_x;
         }elseif ($arrKelasKetSiswa[0] == "XI"){
             $kd = $kd_xi;
+        }elseif ($arrKelasKetSiswa[0] == "XII"){
+            $kd = $kd_xii;
         }
         $predikat_p = $db->generate_predikat($d['nilai_p'], $d['predikat_d'], $d['predikat_c'], $d['predikat_b'], $d['predikat_a']);
         switch ($predikat_p){
